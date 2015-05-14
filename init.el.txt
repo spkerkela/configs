@@ -1,0 +1,53 @@
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "/usr/local/bin/sbcl")
+
+(add-hook 'slime-mode-hook 'set-up-slime-ac)
+(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'slime-repl-mode))
+(require 'package)
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/"))
+
+(package-initialize)
+
+(global-linum-mode 1)
+
+(setq linum-format "%d ")
+
+(defvar my-packages '(better-defaults
+		      clojure-mode
+                      cider
+                      evil
+                      auto-complete
+                      ac-slime
+                      starter-kit
+                      starter-kit-bindings
+                      starter-kit-lisp
+                      starter-kit-eshell
+                      monokai-theme))
+
+(dolist (p my-packages)
+  (when (not (package-installed-p p))
+    (package-install p)))
+
+(setq ns-command-modifier 'meta)
+
+(evil-mode 1)
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("fb4bf07618eab33c89d72ddc238d3c30918a501cf7f086f2edf8f4edba9bd59f" default)))
+ '(haskell-mode-hook '(turn-on-haskell-indentation)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+;;(load-theme 'tsdh-dark)
+
