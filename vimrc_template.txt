@@ -23,6 +23,7 @@ Plugin 'powerline/powerline'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'elixir-lang/vim-elixir'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 let g:ycm_add_preview_to_completeopt=0
 let g:ycm_confirm_extra_conf=0
 set completeopt-=preview
