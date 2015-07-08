@@ -48,3 +48,4 @@ set laststatus=2
 set ruler
 autocmd vimenter * NERDTree
 au FileType javascript setlocal nocindent
+colorscheme wasabi256
