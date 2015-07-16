@@ -49,3 +49,5 @@ set ruler
 autocmd vimenter * NERDTree
 au FileType javascript setlocal nocindent
 colorscheme wasabi256
+let g:syntastic_javascript_checkers = ['jshint']
+
