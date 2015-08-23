@@ -70,8 +70,11 @@
   (setq mac-option-modifier nil))
 
 (add-hook 'js-mode-hook 'esk-paredit-nonlisp)
-(define-key js-mode-map "{" 'paredit-open-curly)
-(define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+
+(eval-after-load 'js2-mode
+  (progn
+    '(define-key js-mode-map "{" 'paredit-open-curly)
+    '(define-key js-mode-map "}" 'paredit-close-curly-and-newline)))
 
 (require 'js2-refactor)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
@@ -79,4 +82,5 @@
 (custom-set-variables
  '(js2-basic-offset 2)
  '(js2-bounce-indent-p t)
- )
+ '(js2-missing-semi-one-line-override nil)
+ '(js2-strict-missing-semicolon nil))
