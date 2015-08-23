@@ -24,6 +24,7 @@
                       evil
                       auto-complete
                       js2-mode
+                      js2-refactor
                       alchemist
                       ac-slime
                       company
@@ -71,3 +72,11 @@
 (add-hook 'js-mode-hook 'esk-paredit-nonlisp)
 (define-key js-mode-map "{" 'paredit-open-curly)
 (define-key js-mode-map "}" 'paredit-close-curly-and-newline)
+
+(require 'js2-refactor)
+(add-hook 'js2-mode-hook #'js2-refactor-mode)
+
+(custom-set-variables
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t)
+ )
