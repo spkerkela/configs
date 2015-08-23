@@ -17,8 +17,6 @@
 (package-initialize)
 
 ; Make sure linum mode is false
-(global-linum-mode 0)
-(global-relative-line-numbers-mode)
 
 (defvar my-packages '(better-defaults
 		      clojure-mode
@@ -57,3 +55,6 @@
  ;; If there is more than one, they won't work right.
  )
 (load-theme 'monokai t)
+
+(global-linum-mode 0)
+(global-relative-line-numbers-mode)
