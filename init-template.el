@@ -15,6 +15,7 @@
              '("melpa" . "http://melpa.org/packages/"))
 
 (package-initialize)
+(package-refresh-contents)
 
 ; Make sure linum mode is false
 
@@ -36,6 +37,7 @@
                       haskell-mode
                       neotree
                       monokai-theme
+                      powerline-evil
                       relative-line-numbers
                       starter-kit
                       starter-kit-bindings
