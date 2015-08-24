@@ -32,7 +32,6 @@
                       alchemist
                       ac-slime
                       company
-                      emacs-has
                       haskell-emacs
                       haskell-mode
                       neotree
