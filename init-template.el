@@ -40,6 +40,7 @@
                       powerline-evil
                       relative-line-numbers
                       starter-kit
+                      icicles
                       starter-kit-bindings
                       starter-kit-lisp
                       starter-kit-eshell))
@@ -119,7 +120,7 @@
 (global-relative-line-numbers-mode)
 
 (electric-pair-mode 1)
-
+(icy-mode 1)
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
 
 (add-hook 'js-mode-hook 'js2-minor-mode)
@@ -146,6 +147,7 @@
 (require 'neotree)
 (require 'flycheck)
 (require 'powerline)
+(require 'icicles)
 (powerline-center-evil-theme)
 
 (add-hook 'after-init-hook #'global-flycheck-mode)
