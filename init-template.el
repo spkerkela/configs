@@ -25,6 +25,7 @@
                       evil
                       auto-complete
                       js2-mode
+                      ac-js2
                       json-mode
                       flycheck
                       web-mode
