@@ -29,6 +29,7 @@
                       json-mode
                       flycheck
                       web-mode
+                      git
                       exec-path-from-shell
                       js2-refactor
                       alchemist
@@ -148,6 +149,7 @@
 (require 'neotree)
 (require 'flycheck)
 (require 'powerline)
+(require 'git)
 (require 'icicles)
 (powerline-center-evil-theme)
 
