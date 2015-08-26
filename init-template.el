@@ -172,6 +172,8 @@
     (setq web-mode-code-indent-offset 2))
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
+(setq web-mode-content-types-alist
+      '(("jsx" . "\\.js[x]?\\'")))
 
 (provide 'init)
 ;;; init.el ends here
