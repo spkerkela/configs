@@ -17,8 +17,6 @@
 (package-initialize)
 (package-refresh-contents)
 
-; Make sure linum mode is false
-
 (defvar my-packages '(better-defaults
 		      clojure-mode
                       cider
@@ -180,20 +178,7 @@
     (setq web-mode-css-indent-offset 2)
     (setq web-mode-code-indent-offset 2))
 
-(global-prettify-symbols-mode 1)
-
 (add-hook 'web-mode-hook 'my-web-mode-hook)
-(add-hook 'js2-mode-hook
-          (lambda ()
-            (push '("function" . ?ƒ)
-                  prettify-symbols-alist)
-            (push '("const" . ?\u2201)
-                  prettify-symbols-alist)
-            (push '("=>" . ?\u21d2)
-                  prettify-symbols-alist)
-            (push '("return" . ?\u279C)	
-                  prettify-symbols-alist)))
-
 (setq web-mode-content-types-alist
       '(("jsx" . "\\.js[x]?\\'")))
 
