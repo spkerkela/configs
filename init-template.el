@@ -28,7 +28,6 @@
                       skewer-mode
                       flycheck
                       web-mode
-                      git
                       exec-path-from-shell
                       js2-refactor
                       alchemist
@@ -36,6 +35,7 @@
                       company
                       haskell-emacs
                       haskell-mode
+                      purescript-mode
                       neotree
                       monokai-theme
                       powerline-evil
@@ -66,7 +66,7 @@
    (quote
     ("05c3bc4eb1219953a4f182e10de1f7466d28987f48d647c01f1f0037ff35ab9a" "9a9e75c15d4017c81a2fe7f83af304ff52acfadd7dde3cb57595919ef2e8d736" "fb4bf07618eab33c89d72ddc238d3c30918a501cf7f086f2edf8f4edba9bd59f" default)))
  '(fci-rule-color "#49483E")
- '(haskell-mode-hook (quote (turn-on-haskell-indentation)))
+ '(haskell-mode-hook (quote (turn-on-haskell-indentation)) t)
  '(highlight-changes-colors ("#FD5FF0" "#AE81FF"))
  '(highlight-tail-colors
    (quote
@@ -85,6 +85,9 @@
  '(js2-strict-missing-semi nil t)
  '(js2-strict-missing-semicolon nil t)
  '(magit-diff-use-overlays nil)
+ '(purescript-mode-hook
+   (quote
+    (turn-on-purescript-indent turn-on-purescript-indentation turn-on-purescript-unicode-input-method)))
  '(vc-annotate-background nil)
  '(vc-annotate-color-map
    (quote
@@ -144,11 +147,9 @@
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
 
 
-
 (require 'neotree)
 (require 'flycheck)
 (require 'powerline)
-(require 'git)
 (require 'icicles)
 (require 'git)
 
