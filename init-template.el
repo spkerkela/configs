@@ -1,3 +1,5 @@
+;;; init: --- Summary
+;;; Commentary:
 ;(load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;;; Replace "sbcl" with the path to your implementation
 ;(setq inferior-lisp-program "/usr/local/bin/sbcl")
@@ -7,12 +9,15 @@
 ;(eval-after-load "auto-complete"
 ;  '(add-to-list 'ac-modes 'slime-repl-mode))
 (require 'package)
-
+;;; Code:
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/"))
+;(add-to-list 'load-path (expand-file-name "~/Sources/tern/emacs/"))
+;(autoload 'tern-mode "tern.el" nil t)
+
 
 (package-initialize)
 (package-refresh-contents)
@@ -37,6 +42,8 @@
                       haskell-mode
                       purescript-mode
                       neotree
+                      tern
+                      tern-auto-complete
                       monokai-theme
                       powerline-evil
                       relative-line-numbers
@@ -50,8 +57,17 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(require 'auto-complete)
+(require 'js2-refactor)
+(require 'neotree)
+(require 'flycheck)
+(require 'powerline)
+(require 'icicles)
+(require 'git)
+
 (setq ns-command-modifier 'meta)
 
+(global-auto-complete-mode t)
 (evil-mode 1)
 (add-hook 'after-init-hook 'global-company-mode)
 (custom-set-variables
@@ -118,7 +134,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
-(load-theme 'monokai t)
+(load-theme 'deeper-blue t)
 
 (global-linum-mode 0)
 (global-relative-line-numbers-mode)
@@ -128,31 +144,21 @@
 (add-to-list 'auto-mode-alist '("\\.js" . js2-mode))
 
 (add-hook 'js-mode-hook 'js2-minor-mode)
-(add-hook 'js2-mode-hook 'ac-js2-mode)
+;(add-hook 'js2-mode-hook 'ac-js2-mode)
 (setq js2-highlight-level 3)
 
 (when (eq system-type 'darwin)
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil))
 
-(add-hook 'js-mode-hook 'esk-paredit-nonlisp)
+;; (eval-after-load 'tern
+;;   '(progn
+;;      (require 'tern-auto-complete)
+;;      (tern-ac-setup)))
 
 
-;; (eval-after-load 'js2-mode
-;;   (progn
-;;     '(define-key js-mode-map "{" 'paredit-open-curly)
-;;     '(define-key js-mode-map "}" 'paredit-close-curly-and-newline)))
-
-(require 'js2-refactor)
 (add-hook 'js2-mode-hook #'js2-refactor-mode)
-
-
-(require 'neotree)
-(require 'flycheck)
-(require 'powerline)
-(require 'icicles)
-(require 'git)
-
+(add-hook 'js2-mode-hook (lambda () (tern-mode t)))
 
 (powerline-center-evil-theme)
 
@@ -175,9 +181,11 @@
 
 ;; indent settings for web mode
 (defun my-web-mode-hook ()
+  "Set my web mode hooks up."
     (setq web-mode-markup-indent-offset 2)
     (setq web-mode-css-indent-offset 2)
     (setq web-mode-code-indent-offset 2))
+
 
 (add-hook 'web-mode-hook 'my-web-mode-hook)
 (setq web-mode-content-types-alist
