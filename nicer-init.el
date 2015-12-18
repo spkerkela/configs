@@ -52,5 +52,7 @@
   (setq mac-command-modifier 'meta)
   (setq mac-option-modifier nil))
 
+(electric-pair-mode 1)
+
 ;; This removes the annoying glitchy feeling flash when something dings
 (setq ring-bell-function 'ignore)
