@@ -16,8 +16,6 @@
   (dolist (p pl)
     (maybe-install p)))
 
-(maybe-install 'evil)
-
 (defvar essential-packages '(better-defaults
                              evil
                              relative-line-numbers
