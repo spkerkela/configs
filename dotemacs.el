@@ -32,9 +32,9 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (setq org-log-done t)
 (setq org-agenda-files (list "~/org/work.org"
-			     "~/org/home.org"
-			     "~/org/wow.org"			     
-			     "~/org/business.org"))
+                             "~/org/home.org"
+                             "~/org/wow.org"
+                             "~/org/business.org"))
 
 ;; Company
 (add-hook 'after-init-hook 'global-company-mode)
